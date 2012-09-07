@@ -18,6 +18,7 @@ public partial class usercontrols_Methods : System.Web.UI.UserControl
     DynamicNode battletagProfile;
     D3API api;
     D3pServices d3pServices = D3pServices.Instance;
+    //hej verden
     
 
     protected void Page_Load(object sender, EventArgs e)
