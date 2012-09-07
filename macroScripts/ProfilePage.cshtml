@@ -1,0 +1,23 @@
+﻿@using umbraco.MacroEngines;
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@using D3pCom.Generics;
+@{
+    DynamicNode profileNode = new DynamicNode(Convert.ToInt32(Request.QueryString["id"]));
+    DynamicNode currentNode = new DynamicNode(umbraco.NodeFactory.Node.getCurrentNodeId());
+    string dn = profileNode.Id.ToString();
+    if(currentNode.NodeTypeAlias == ProfilePage.documentTypeAlias)
+    {
+        <div class="row battletag"><div class="twelve columns"><h1>@profileNode.Name</h1></div></div>
+        <div id="profile-nav" class="row">
+            <div class="six mobile-two columns career"><a href="/profile/career-info.aspx?id=@dn"><h4>Career info</h4><img alt="monk" src="/images/monk.png" width="100%" height="100%" /></a></div>
+            <div class="six mobile-two columns heroes"><a href="/profile/heroes.aspx?id=@dn"><h4>Heroes</h4><img alt="barb" src="/images/barb.png" width="100%" height="100%" /></a></div>
+        </div>
+        <div id="profile-nav2" class="row">
+            <div class="six mobile-two columns progress"><a href="/profile/progress.aspx?id=@dn"><h4>Progress</h4><img alt="wd" src="/images/wd.png" width="100%" height="100%" /></a></div>
+            <div class="six mobile-two columns fallenheroes"><a href="/profile/fallen-heroes.aspx?id=@dn"><h4>Fallen heroes</h4><img alt="wic" src="/images/wic.png" width="100%" height="100%" /></a></div>
+        </div>
+            
+        
+    }
+    
+}

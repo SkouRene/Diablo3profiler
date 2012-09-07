@@ -1,0 +1,30 @@
+﻿@using umbraco.MacroEngines;
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@using D3pCom.Generics;
+@using D3pCom.Utilities;
+
+@{
+    DynamicNode profileNode = new DynamicNode(Convert.ToInt32(Request.QueryString["id"]));
+    DynamicNode currentNode = new DynamicNode(umbraco.NodeFactory.Node.getCurrentNodeId());
+    
+    
+    <div id="heroes" class="row">
+        <div class="twelve columns" >
+          @foreach(DynamicNode hero in profileNode.Descendants(Hero.documentTypeAlias))
+          {
+              <div class="row hero-name"><a href="@currentNode.Down().Url?id=@hero.Id">
+                <div class="two mobile-one columns"><img alt="hero" src="@D3pUtilities.GetHeroDificulty(hero.GetPropertyValue(Hero.heroHardcore))" height="100px" width="100px"/></div>
+                <div class="eight mobile-two columns">
+                    <div class="row">
+                        <div class="twelve columns"><h4>@hero.GetPropertyValue(Hero.heroName)</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns"><h5>Level @hero.GetPropertyValue(Hero.heroLevel)</h5></div>
+                    </div> 
+                </div>
+                <div class="two mobile-one columns"><img alt="hero" src="@D3pUtilities.GetHeroIcon(hero.GetPropertyValue(Hero.heroClass))" height="100px" width="100px"/></div></a>
+              </div>
+          }  
+        </div>
+    </div>
+}

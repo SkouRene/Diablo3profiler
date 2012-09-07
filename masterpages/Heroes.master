@@ -1,0 +1,4 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Profile.master" AutoEventWireup="true" %>
+<asp:Content ContentPlaceHolderID="subpagecontent" runat="server">
+<umbraco:Macro Alias="HeroesPage_razor" runat="server" />
+</asp:Content>

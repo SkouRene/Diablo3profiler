@@ -1,0 +1,36 @@
+﻿@using umbraco.MacroEngines;
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@using D3pCom.Generics;
+@using D3pCom.Utilities;
+
+@{
+    DynamicNode profileNode = new DynamicNode(Convert.ToInt32(Request.QueryString["id"]));
+    DynamicNode currentNode = new DynamicNode(umbraco.NodeFactory.Node.getCurrentNodeId());
+
+    if (profileNode.Descendants(FallenHero.documentTypeAlias).Items.Count > 0)
+    {
+    <div id="fallenheroes" class="row">
+        <div class="twelve columns" >
+          @foreach(DynamicNode fallenHero in profileNode.Descendants(FallenHero.documentTypeAlias))
+          {
+              <div class="row hero-name"><a href="@currentNode.Down().Url?id=@fallenHero.Id">
+                <div class="two mobile-one columns"><img alt="hero" src="/images/hardcore100.png" height="100px" width="100px"/></div>
+                <div class="eight mobile-two columns">
+                    <div class="row">
+                        <div class="twelve columns"><h4>@fallenHero.Name</h4></div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns"><h5>Level 60</h5></div>
+                    </div> 
+                </div>
+                <div class="two mobile-one columns"><img alt="hero" src="/images/wd100.png" height="100px" width="100px"/></div></a>
+              </div>
+          }  
+        </div>
+    </div>
+    }else{
+        <div class="row first">
+            <div class="twelve columns"><h3>You have no fallen heroes yet</h3></div>
+        </div>
+    }
+}

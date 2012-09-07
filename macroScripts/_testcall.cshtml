@@ -1,0 +1,9 @@
+﻿@using System;
+@using D3APIdotNet;
+
+@{
+    D3API api = new D3API(HostName.en_GB);
+    var careerProfile = api.getCareerProfile("MrGreen#2532");
+    //string heroName = careerProfile.heroes[0].name;
+    Response.Write(careerProfile.heroes);
+}

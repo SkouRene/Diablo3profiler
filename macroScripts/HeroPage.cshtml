@@ -1,0 +1,45 @@
+﻿@using umbraco.MacroEngines;
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@using D3pCom.Generics;
+@using D3pCom.Utilities;
+@using D3APIdotNet;
+
+@{
+    DynamicNode hero = new DynamicNode(Convert.ToInt32(Request.QueryString["id"]));
+    D3API api;
+    D3pServices d3pServices = D3pServices.Instance;
+    api = new D3API(HostName.en_GB);
+    string battleTag = hero.Parent.Name;
+    string heroId = hero.GetPropertyValue(Hero.heroId);
+
+    var heroProfile = api.getHeroProfile(battleTag, Convert.ToInt32(heroId));
+    List<object> skills = heroProfile.skills.active;
+
+    Dictionary<string, dynamic> skill1 = heroProfile.skills.active[0];
+    Dictionary<string, dynamic> skil1 = skill1["skill"];
+
+    for (var i = 0; i < 6; i++)
+    {
+        <div><h4>@heroProfile.skills.active[i]["skill"]["slug"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["name"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["icon"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["level"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["categorySlug"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["tooltipUrl"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["description"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["simpleDescription"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["skill"]["skillCalcId"]</h4></div>
+    
+        <div><h4>@heroProfile.skills.active[i]["rune"]["slug"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["type"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["name"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["level"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["description"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["simpleDescription"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["tooltipParams"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["skillCalcId"]</h4></div>
+        <div><h4>@heroProfile.skills.active[i]["rune"]["order"]</h4></div>                   
+    }
+
+    
+}

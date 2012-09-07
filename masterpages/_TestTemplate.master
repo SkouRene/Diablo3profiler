@@ -1,0 +1,5 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="PageContent" runat="server">
+  <umbraco:Macro Alias="_TestMethods" runat="server" />
+</asp:content>

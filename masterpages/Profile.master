@@ -1,0 +1,10 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="PageContent" runat="server">
+<div id="breadcrumb" class="row">
+    <div class="twelve columns crumbs"><umbraco:Macro ID="Macro1" Alias="Breadcrumb" runat="server" /></div>    
+</div>
+  <umbraco:Macro Alias="ProfilePage_razor" runat="server" />
+  <asp:contentplaceholder id="subpagecontent" runat="server">
+  </asp:contentplaceholder>
+</asp:content>

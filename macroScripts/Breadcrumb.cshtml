@@ -1,0 +1,19 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+@using umbraco.MacroEngines;
+@using D3pCom.Generics;
+<ul>
+
+@foreach(var level in @Model.Ancestors().Where("umbracoNaviHide != true"))
+{
+    DynamicNode n = new DynamicNode(Convert.ToInt32(Request.QueryString["id"]));
+    if (n.NodeTypeAlias == Hero.documentTypeAlias || n.NodeTypeAlias == FallenHero.documentTypeAlias)
+    {
+        <li><a href="@level.Url?id=@n.Parent.Id">@level.Name ></a></li>
+    }
+    else
+    {
+	    <li><a href="@level.Url?id=@n.Id">@level.Name ></a></li>
+    }
+}
+<li>@Model.Name</li>
+</ul>
