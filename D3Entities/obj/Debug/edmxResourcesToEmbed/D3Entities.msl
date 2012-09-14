@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Diablo3ProfilerModelStoreContainer" CdmEntityContainer="Diablo3ProfilerEntities">
+    <EntitySetMapping Name="CarrerProfiles">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.CarrerProfile">
+        <MappingFragment StoreEntitySet="CarrerProfiles">
+          <ScalarProperty Name="TimePlayedWizard" ColumnName="TimePlayedWizard" />
+          <ScalarProperty Name="TimePlayedWitchDoctor" ColumnName="TimePlayedWitchDoctor" />
+          <ScalarProperty Name="TimePlayedMonk" ColumnName="TimePlayedMonk" />
+          <ScalarProperty Name="TimePlayedDemonHunter" ColumnName="TimePlayedDemonHunter" />
+          <ScalarProperty Name="TimePlayedBarbarian" ColumnName="TimePlayedBarbarian" />
+          <ScalarProperty Name="KillsHardcoreMonsters" ColumnName="KillsHardcoreMonsters" />
+          <ScalarProperty Name="KillsElites" ColumnName="KillsElites" />
+          <ScalarProperty Name="KillsMonsters" ColumnName="KillsMonsters" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="LastHeroPlayed" ColumnName="LastHeroPlayed" />
+          <ScalarProperty Name="BattleTag" ColumnName="BattleTag" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeroProfiles">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.HeroProfile">
+        <MappingFragment StoreEntitySet="HeroProfiles">
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="KillsElites" ColumnName="KillsElites" />
+          <ScalarProperty Name="Damage" ColumnName="Damage" />
+          <ScalarProperty Name="ArcaneResist" ColumnName="ArcaneResist" />
+          <ScalarProperty Name="PoisonResist" ColumnName="PoisonResist" />
+          <ScalarProperty Name="LightningResist" ColumnName="LightningResist" />
+          <ScalarProperty Name="FireResist" ColumnName="FireResist" />
+          <ScalarProperty Name="ColdResist" ColumnName="ColdResist" />
+          <ScalarProperty Name="Armor" ColumnName="Armor" />
+          <ScalarProperty Name="Vitality" ColumnName="Vitality" />
+          <ScalarProperty Name="Intelligence" ColumnName="Intelligence" />
+          <ScalarProperty Name="Dexterity" ColumnName="Dexterity" />
+          <ScalarProperty Name="Strength" ColumnName="Strength" />
+          <ScalarProperty Name="Life" ColumnName="Life" />
+          <ScalarProperty Name="CritChance" ColumnName="CritChance" />
+          <ScalarProperty Name="DamageReduction" ColumnName="DamageReduction" />
+          <ScalarProperty Name="DamageIncrease" ColumnName="DamageIncrease" />
+          <ScalarProperty Name="Hardcore" ColumnName="Hardcore" />
+          <ScalarProperty Name="HeroLevel" ColumnName="HeroLevel" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CarrerProfileId" ColumnName="CarrerProfileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemAttributes">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.ItemAttribute">
+        <MappingFragment StoreEntitySet="ItemAttributes">
+          <ScalarProperty Name="AttributeValue" ColumnName="AttributeValue" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.Item">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="AttacksPerSecondMax" ColumnName="AttacksPerSecondMax" />
+          <ScalarProperty Name="AttacksPerSecondMin" ColumnName="AttacksPerSecondMin" />
+          <ScalarProperty Name="DpsMax" ColumnName="DpsMax" />
+          <ScalarProperty Name="DpsMin" ColumnName="DpsMin" />
+          <ScalarProperty Name="BonuAffixes" ColumnName="BonuAffixes" />
+          <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+          <ScalarProperty Name="RequiredLevel" ColumnName="RequiredLevel" />
+          <ScalarProperty Name="TooltipParams" ColumnName="TooltipParams" />
+          <ScalarProperty Name="DisplayColor" ColumnName="DisplayColor" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="HeroProfileId" ColumnName="HeroProfileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quests">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.Quest">
+        <MappingFragment StoreEntitySet="Quests">
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+          <ScalarProperty Name="Hardcore" ColumnName="Hardcore" />
+          <ScalarProperty Name="Act" ColumnName="Act" />
+          <ScalarProperty Name="HeroProfileId" ColumnName="HeroProfileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Runes">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.Rune">
+        <MappingFragment StoreEntitySet="Runes">
+          <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+          <ScalarProperty Name="TooltipParams" ColumnName="TooltipParams" />
+          <ScalarProperty Name="SimpleDescription" ColumnName="SimpleDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="Diablo3ProfilerModel.Skill">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="Flavor" ColumnName="Flavor" />
+          <ScalarProperty Name="SimpleDescription" ColumnName="SimpleDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TooltipParams" ColumnName="TooltipParams" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="HeroProfileId" ColumnName="HeroProfileId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

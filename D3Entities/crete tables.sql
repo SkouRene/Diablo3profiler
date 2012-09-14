@@ -8,14 +8,14 @@ drop table [Skills]
 go
 drop table [Quests]
 go
-alter table [CarrerProfiles] drop constraint FK_LastHeroPlayed
+alter table [CareerProfiles] drop constraint FK_LastHeroPlayed
 drop table  [HeroProfiles]
 go
-drop table [CarrerProfiles]
+drop table [CareerProfiles]
 go
 
-create table CarrerProfiles(
-	Id int primary key,
+create table [CareerProfiles](
+	Id int primary key identity(1, 1),
 	BattleTag nvarchar(50) unique, -- implicid unique index
 	LastHeroPlayed int, -- fk constraint added later
 	LastUpdated datetime not null,
@@ -31,7 +31,7 @@ create table CarrerProfiles(
 
 create table HeroProfiles(
 	[Id] int primary key nonclustered, -- 1213
-	[CarrerProfileId] int foreign key references CarrerProfiles([Id]) on delete cascade,
+	[CareerProfileId] int foreign key references [CareerProfiles]([Id]) on delete cascade,
 	[Name] nvarchar(16) not null, -- "Yharr"
 	[Class] varchar(12) not null, -- "demon-hunter"
 	[Gender] int not null, -- 0
@@ -57,10 +57,10 @@ create table HeroProfiles(
 )
 go
 
-create clustered index IX_IdCareerProfileId on [HeroProfiles] ([Id], [CarrerProfileId]) 
+create clustered index IX_IdCareerProfileId on [HeroProfiles] ([Id], [CareerProfileId]) 
 go
 
-alter table CarrerProfiles add constraint FK_LastHeroPlayed foreign key ([LastHeroPlayed]) references [HeroProfiles]([Id])
+alter table [CareerProfiles] add constraint FK_LastHeroPlayed foreign key ([LastHeroPlayed]) references [HeroProfiles]([Id])
 go
 
 create table Skills(

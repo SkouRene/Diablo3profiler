@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Diablo3ProfilerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Diablo3ProfilerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CarrerProfiles" EntityType="Diablo3ProfilerModel.CarrerProfile" />
+    <EntitySet Name="HeroProfiles" EntityType="Diablo3ProfilerModel.HeroProfile" />
+    <EntitySet Name="ItemAttributes" EntityType="Diablo3ProfilerModel.ItemAttribute" />
+    <EntitySet Name="Items" EntityType="Diablo3ProfilerModel.Item" />
+    <EntitySet Name="Quests" EntityType="Diablo3ProfilerModel.Quest" />
+    <EntitySet Name="Runes" EntityType="Diablo3ProfilerModel.Rune" />
+    <EntitySet Name="Skills" EntityType="Diablo3ProfilerModel.Skill" />
+    <AssociationSet Name="FK__HeroProfi__Carre__7755B73D" Association="Diablo3ProfilerModel.FK__HeroProfi__Carre__7755B73D">
+      <End Role="CarrerProfile" EntitySet="CarrerProfiles" />
+      <End Role="HeroProfile" EntitySet="HeroProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LastHeroPlayed" Association="Diablo3ProfilerModel.FK_LastHeroPlayed">
+      <End Role="HeroProfile" EntitySet="HeroProfiles" />
+      <End Role="CarrerProfile" EntitySet="CarrerProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Items__HeroProfi__0B5CAFEA" Association="Diablo3ProfilerModel.FK__Items__HeroProfi__0B5CAFEA">
+      <End Role="HeroProfile" EntitySet="HeroProfiles" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quests__HeroProf__0697FACD" Association="Diablo3ProfilerModel.FK__Quests__HeroProf__0697FACD">
+      <End Role="HeroProfile" EntitySet="HeroProfiles" />
+      <End Role="Quest" EntitySet="Quests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Skills__HeroProf__7D0E9093" Association="Diablo3ProfilerModel.FK__Skills__HeroProf__7D0E9093">
+      <End Role="HeroProfile" EntitySet="HeroProfiles" />
+      <End Role="Skill" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ItemAttri__ItemI__10216507" Association="Diablo3ProfilerModel.FK__ItemAttri__ItemI__10216507">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="ItemAttribute" EntitySet="ItemAttributes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Runes__SkillId__01D345B0" Association="Diablo3ProfilerModel.FK__Runes__SkillId__01D345B0">
+      <End Role="Skill" EntitySet="Skills" />
+      <End Role="Rune" EntitySet="Runes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CarrerProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BattleTag" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="LastHeroPlayed" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+    <Property Type="Int32" Name="KillsMonsters" Nullable="false" />
+    <Property Type="Int32" Name="KillsElites" Nullable="false" />
+    <Property Type="Int32" Name="KillsHardcoreMonsters" Nullable="false" />
+    <Property Type="Double" Name="TimePlayedBarbarian" Nullable="false" />
+    <Property Type="Double" Name="TimePlayedDemonHunter" Nullable="false" />
+    <Property Type="Double" Name="TimePlayedMonk" Nullable="false" />
+    <Property Type="Double" Name="TimePlayedWitchDoctor" Nullable="false" />
+    <Property Type="Double" Name="TimePlayedWizard" Nullable="false" />
+    <NavigationProperty Name="HeroProfiles" Relationship="Diablo3ProfilerModel.FK__HeroProfi__Carre__7755B73D" FromRole="CarrerProfile" ToRole="HeroProfile" />
+    <NavigationProperty Name="HeroProfile" Relationship="Diablo3ProfilerModel.FK_LastHeroPlayed" FromRole="CarrerProfile" ToRole="HeroProfile" />
+  </EntityType>
+  <EntityType Name="HeroProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CarrerProfileId" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Class" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Gender" Nullable="false" />
+    <Property Type="Int32" Name="HeroLevel" Nullable="false" />
+    <Property Type="Boolean" Name="Hardcore" Nullable="false" />
+    <Property Type="Double" Name="DamageIncrease" Nullable="false" />
+    <Property Type="Double" Name="DamageReduction" Nullable="false" />
+    <Property Type="Double" Name="CritChance" Nullable="false" />
+    <Property Type="Int32" Name="Life" Nullable="false" />
+    <Property Type="Int32" Name="Strength" Nullable="false" />
+    <Property Type="Int32" Name="Dexterity" Nullable="false" />
+    <Property Type="Int32" Name="Intelligence" Nullable="false" />
+    <Property Type="Int32" Name="Vitality" Nullable="false" />
+    <Property Type="Int32" Name="Armor" Nullable="false" />
+    <Property Type="Int32" Name="ColdResist" Nullable="false" />
+    <Property Type="Int32" Name="FireResist" Nullable="false" />
+    <Property Type="Int32" Name="LightningResist" Nullable="false" />
+    <Property Type="Int32" Name="PoisonResist" Nullable="false" />
+    <Property Type="Int32" Name="ArcaneResist" Nullable="false" />
+    <Property Type="Double" Name="Damage" Nullable="false" />
+    <Property Type="Int32" Name="KillsElites" Nullable="false" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+    <NavigationProperty Name="CarrerProfile" Relationship="Diablo3ProfilerModel.FK__HeroProfi__Carre__7755B73D" FromRole="HeroProfile" ToRole="CarrerProfile" />
+    <NavigationProperty Name="CarrerProfiles" Relationship="Diablo3ProfilerModel.FK_LastHeroPlayed" FromRole="HeroProfile" ToRole="CarrerProfile" />
+    <NavigationProperty Name="Items" Relationship="Diablo3ProfilerModel.FK__Items__HeroProfi__0B5CAFEA" FromRole="HeroProfile" ToRole="Item" />
+    <NavigationProperty Name="Quests" Relationship="Diablo3ProfilerModel.FK__Quests__HeroProf__0697FACD" FromRole="HeroProfile" ToRole="Quest" />
+    <NavigationProperty Name="Skills" Relationship="Diablo3ProfilerModel.FK__Skills__HeroProf__7D0E9093" FromRole="HeroProfile" ToRole="Skill" />
+  </EntityType>
+  <EntityType Name="ItemAttribute">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Type="Int32" Name="ItemId" Nullable="false" />
+    <Property Type="String" Name="AttributeValue" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Item" Relationship="Diablo3ProfilerModel.FK__ItemAttri__ItemI__10216507" FromRole="ItemAttribute" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="HeroProfileId" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Icon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DisplayColor" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TooltipParams" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RequiredLevel" Nullable="false" />
+    <Property Type="Int32" Name="ItemLevel" Nullable="false" />
+    <Property Type="Int32" Name="BonuAffixes" Nullable="false" />
+    <Property Type="Double" Name="DpsMin" />
+    <Property Type="Double" Name="DpsMax" />
+    <Property Type="Double" Name="AttacksPerSecondMin" />
+    <Property Type="Double" Name="AttacksPerSecondMax" />
+    <NavigationProperty Name="HeroProfile" Relationship="Diablo3ProfilerModel.FK__Items__HeroProfi__0B5CAFEA" FromRole="Item" ToRole="HeroProfile" />
+    <NavigationProperty Name="ItemAttribute" Relationship="Diablo3ProfilerModel.FK__ItemAttri__ItemI__10216507" FromRole="Item" ToRole="ItemAttribute" />
+  </EntityType>
+  <EntityType Name="Quest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="HeroProfileId" />
+    <Property Type="Int32" Name="Act" Nullable="false" />
+    <Property Type="Boolean" Name="Hardcore" Nullable="false" />
+    <Property Type="Int16" Name="Difficulty" Nullable="false" />
+    <Property Type="String" Name="Slug" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Completed" Nullable="false" />
+    <NavigationProperty Name="HeroProfile" Relationship="Diablo3ProfilerModel.FK__Quests__HeroProf__0697FACD" FromRole="Quest" ToRole="HeroProfile" />
+  </EntityType>
+  <EntityType Name="Rune">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="SkillId" />
+    <Property Type="String" Name="Slug" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SimpleDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TooltipParams" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="OrderIndex" Nullable="false" />
+    <NavigationProperty Name="Skill" Relationship="Diablo3ProfilerModel.FK__Runes__SkillId__01D345B0" FromRole="Rune" ToRole="Skill" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="HeroProfileId" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Slug" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Icon" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TooltipParams" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SimpleDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Flavor" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HeroProfile" Relationship="Diablo3ProfilerModel.FK__Skills__HeroProf__7D0E9093" FromRole="Skill" ToRole="HeroProfile" />
+    <NavigationProperty Name="Runes" Relationship="Diablo3ProfilerModel.FK__Runes__SkillId__01D345B0" FromRole="Skill" ToRole="Rune" />
+  </EntityType>
+  <Association Name="FK__HeroProfi__Carre__7755B73D">
+    <End Type="Diablo3ProfilerModel.CarrerProfile" Role="CarrerProfile" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.HeroProfile" Role="HeroProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarrerProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HeroProfile">
+        <PropertyRef Name="CarrerProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LastHeroPlayed">
+    <End Type="Diablo3ProfilerModel.HeroProfile" Role="HeroProfile" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.CarrerProfile" Role="CarrerProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CarrerProfile">
+        <PropertyRef Name="LastHeroPlayed" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Items__HeroProfi__0B5CAFEA">
+    <End Type="Diablo3ProfilerModel.HeroProfile" Role="HeroProfile" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="HeroProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quests__HeroProf__0697FACD">
+    <End Type="Diablo3ProfilerModel.HeroProfile" Role="HeroProfile" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.Quest" Role="Quest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Quest">
+        <PropertyRef Name="HeroProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Skills__HeroProf__7D0E9093">
+    <End Type="Diablo3ProfilerModel.HeroProfile" Role="HeroProfile" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.Skill" Role="Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="HeroProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ItemAttri__ItemI__10216507">
+    <End Type="Diablo3ProfilerModel.Item" Role="Item" Multiplicity="1" />
+    <End Type="Diablo3ProfilerModel.ItemAttribute" Role="ItemAttribute" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ItemAttribute">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Runes__SkillId__01D345B0">
+    <End Type="Diablo3ProfilerModel.Skill" Role="Skill" Multiplicity="0..1" />
+    <End Type="Diablo3ProfilerModel.Rune" Role="Rune" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rune">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

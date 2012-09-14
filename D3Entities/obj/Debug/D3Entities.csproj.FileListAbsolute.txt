@@ -1,0 +1,6 @@
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\bin\Debug\D3Entities.dll.config
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\bin\Debug\D3Entities.dll
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\bin\Debug\D3Entities.pdb
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\bin\Debug\System.Data.Entity.dll
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\obj\Debug\D3Entities.dll
+C:\inetpub\wwwroot\Diablo3Profiler\Diablo3profiler\D3Entities\obj\Debug\D3Entities.pdb
