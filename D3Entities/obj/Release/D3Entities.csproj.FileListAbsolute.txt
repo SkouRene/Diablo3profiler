@@ -1,0 +1,6 @@
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\bin\Release\D3Entities.dll.config
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\bin\Release\D3Entities.dll
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\bin\Release\D3Entities.pdb
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\obj\Release\ResolveAssemblyReference.cache
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\obj\Release\D3Entities.dll
+C:\Users\gs\Desktop\Diabo3Profiler\D3Entities\D3Entities\obj\Release\D3Entities.pdb

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Diablo3ProfilerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Diablo3ProfilerModelStoreContainer">
+    <EntitySet Name="HeroProfiles" EntityType="Diablo3ProfilerModel.Store.HeroProfiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Runes" EntityType="Diablo3ProfilerModel.Store.Runes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Skills" EntityType="Diablo3ProfilerModel.Store.Skills" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Runes__SkillId__0DAF0CB0" Association="Diablo3ProfilerModel.Store.FK__Runes__SkillId__0DAF0CB0">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Runes" EntitySet="Runes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Skills__HeroProf__08EA5793" Association="Diablo3ProfilerModel.Store.FK__Skills__HeroProf__08EA5793">
+      <End Role="HeroProfiles" EntitySet="HeroProfiles" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HeroProfiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="16" />
+    <Property Name="Class" Type="varchar" Nullable="false" MaxLength="12" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="Hardcore" Type="bit" Nullable="false" />
+    <Property Name="DamageIncrease" Type="float" Nullable="false" />
+    <Property Name="DamageReduction" Type="float" Nullable="false" />
+    <Property Name="CritChance" Type="float" Nullable="false" />
+    <Property Name="Life" Type="int" Nullable="false" />
+    <Property Name="Strength" Type="int" Nullable="false" />
+    <Property Name="Dexterity" Type="int" Nullable="false" />
+    <Property Name="Intelligence" Type="int" Nullable="false" />
+    <Property Name="Vitality" Type="int" Nullable="false" />
+    <Property Name="Armor" Type="int" Nullable="false" />
+    <Property Name="ColdResist" Type="int" Nullable="false" />
+    <Property Name="FireResist" Type="int" Nullable="false" />
+    <Property Name="LightningResist" Type="int" Nullable="false" />
+    <Property Name="PoisonResist" Type="int" Nullable="false" />
+    <Property Name="ArcaneResist" Type="int" Nullable="false" />
+    <Property Name="Damage" Type="float" Nullable="false" />
+    <Property Name="KillsElites" Type="int" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Runes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="SkillId" Type="int" />
+    <Property Name="Slug" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="nchar" Nullable="false" MaxLength="1" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="SimpleDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="TooltipParams" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="OrderIndex" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="HeroProfileId" Type="int" />
+    <Property Name="Type" Type="nchar" Nullable="false" MaxLength="7" />
+    <Property Name="Slug" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="TooltipParams" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="SimpleDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="Flavor" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK__Runes__SkillId__0DAF0CB0">
+    <End Role="Skills" Type="Diablo3ProfilerModel.Store.Skills" Multiplicity="0..1" />
+    <End Role="Runes" Type="Diablo3ProfilerModel.Store.Runes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Runes">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Skills__HeroProf__08EA5793">
+    <End Role="HeroProfiles" Type="Diablo3ProfilerModel.Store.HeroProfiles" Multiplicity="0..1" />
+    <End Role="Skills" Type="Diablo3ProfilerModel.Store.Skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Skills">
+        <PropertyRef Name="HeroProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

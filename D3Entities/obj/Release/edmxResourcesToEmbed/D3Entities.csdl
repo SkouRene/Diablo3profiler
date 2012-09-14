@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Diablo3ProfilerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Diablo3ProfilerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HeroProfiles" EntityType="Diablo3ProfilerModel.HeroProfile" />
+    <EntitySet Name="Runes" EntityType="Diablo3ProfilerModel.Rune" />
+    <EntitySet Name="Skills" EntityType="Diablo3ProfilerModel.Skill" />
+    <AssociationSet Name="FK__Skills__HeroProf__08EA5793" Association="Diablo3ProfilerModel.FK__Skills__HeroProf__08EA5793">
+      <End Role="HeroProfiles" EntitySet="HeroProfiles" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Runes__SkillId__0DAF0CB0" Association="Diablo3ProfilerModel.FK__Runes__SkillId__0DAF0CB0">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Runes" EntitySet="Runes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HeroProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+    <Property Name="Class" Type="String" Nullable="false" MaxLength="12" Unicode="false" FixedLength="false" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <Property Name="Hardcore" Type="Boolean" Nullable="false" />
+    <Property Name="DamageIncrease" Type="Double" Nullable="false" />
+    <Property Name="DamageReduction" Type="Double" Nullable="false" />
+    <Property Name="CritChance" Type="Double" Nullable="false" />
+    <Property Name="Life" Type="Int32" Nullable="false" />
+    <Property Name="Strength" Type="Int32" Nullable="false" />
+    <Property Name="Dexterity" Type="Int32" Nullable="false" />
+    <Property Name="Intelligence" Type="Int32" Nullable="false" />
+    <Property Name="Vitality" Type="Int32" Nullable="false" />
+    <Property Name="Armor" Type="Int32" Nullable="false" />
+    <Property Name="ColdResist" Type="Int32" Nullable="false" />
+    <Property Name="FireResist" Type="Int32" Nullable="false" />
+    <Property Name="LightningResist" Type="Int32" Nullable="false" />
+    <Property Name="PoisonResist" Type="Int32" Nullable="false" />
+    <Property Name="ArcaneResist" Type="Int32" Nullable="false" />
+    <Property Name="Damage" Type="Double" Nullable="false" />
+    <Property Name="KillsElites" Type="Int32" Nullable="false" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Skills" Relationship="Diablo3ProfilerModel.FK__Skills__HeroProf__08EA5793" FromRole="HeroProfiles" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Rune">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SkillId" Type="Int32" />
+    <Property Name="Slug" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="SimpleDescription" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="TooltipParams" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OrderIndex" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Skill" Relationship="Diablo3ProfilerModel.FK__Runes__SkillId__0DAF0CB0" FromRole="Runes" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="HeroProfileId" Type="Int32" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="7" Unicode="true" FixedLength="true" />
+    <Property Name="Slug" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Icon" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TooltipParams" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="SimpleDescription" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Flavor" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="HeroProfile" Relationship="Diablo3ProfilerModel.FK__Skills__HeroProf__08EA5793" FromRole="Skills" ToRole="HeroProfiles" />
+    <NavigationProperty Name="Runes" Relationship="Diablo3ProfilerModel.FK__Runes__SkillId__0DAF0CB0" FromRole="Skills" ToRole="Runes" />
+  </EntityType>
+  <Association Name="FK__Skills__HeroProf__08EA5793">
+    <End Role="HeroProfiles" Type="Diablo3ProfilerModel.HeroProfile" Multiplicity="0..1" />
+    <End Role="Skills" Type="Diablo3ProfilerModel.Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeroProfiles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Skills">
+        <PropertyRef Name="HeroProfileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Runes__SkillId__0DAF0CB0">
+    <End Role="Skills" Type="Diablo3ProfilerModel.Skill" Multiplicity="0..1" />
+    <End Role="Runes" Type="Diablo3ProfilerModel.Rune" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Runes">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
