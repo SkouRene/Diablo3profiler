@@ -40,6 +40,26 @@ namespace D3pCom.Generics
         #endregion
 
         #region public methods
+        public dynamic GetCareerProfile(string battletag)
+        {
+            D3API api;
+            dynamic careerProfile = null;
+           
+            try
+            {
+                api = new D3API(HostName.en_GB);
+                careerProfile = api.getCareerProfile(battletag);
+                
+                
+            }
+            catch (Exception exception)
+            {
+                string d = exception.ToString();
+                return careerProfile;
+                
+            }
+            return careerProfile;
+        }
 
         public Document CreateDiablo3Profile(Document profiles, dynamic careerprofile, User author)
         {

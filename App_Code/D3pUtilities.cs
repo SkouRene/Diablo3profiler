@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using D3pCom.Generics;
+using umbraco.MacroEngines;
+using umbraco.NodeFactory;
 
 namespace D3pCom.Utilities
 {
@@ -10,6 +13,8 @@ namespace D3pCom.Utilities
     /// </summary>
     public class D3pUtilities
     {
+        
+
         private D3pUtilities()
         {
         }
@@ -51,6 +56,23 @@ namespace D3pCom.Utilities
             {
                 return heroDificulty;
             }
+        }
+        public static string GetBattleTagByNodeID(int id)
+        {
+            DynamicNode profile = new DynamicNode(id);
+            string battletag = null;
+
+            if(profile.NodeTypeAlias == BattleTagProfile.documentTypeAlias)
+            {
+                battletag = profile.Name;
+                return battletag;
+            }
+            else 
+            {
+                return battletag;
+            }
+
+            
         }
     }
 }

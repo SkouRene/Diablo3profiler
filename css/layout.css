@@ -1,29 +1,54 @@
-﻿body {background-color:#2b2b2b;
-}
-.clear {clear:both;}
-h1,h4,h5,h2,h3 {color:#2BA6CB;font-weight:lighter;font-family:Segoe UI,Arial;margin:0px;}
-.first {margin-top:20px;}
-.top {margin-top:140px;}
-.battletag h1 {margin-top:10px;}
-#profile-nav .last {margin-top:20px;}
-#battletag-search {margin-top:20px;}
-#battletag-search input[type=text] {background-color:#252525;color:#2BA6CB;border-color:#4b4a4a;font-size:12pt;}
-#battletag-search .validationtext {color:#2BA6CB;}
-#battletag-footer {margin-top:100px;}
-#battletag-footer .sponsored-link,#battletag-status .status-text,#progress .update-text {text-align:center;color:#2BA6CB;}
-#breadcrumb {margin-top:20px;}
-#breadcrumb li {float:left;color:#4b4a4a;padding-top:3px;padding-right:2px;}
-#breadcrumb li a {color:#2ba6cb;vertical-align:top;}
-#breadcrumb ul {list-style-type:none;padding-left:10px;}
-#breadcrumb .crumbs {clear:both;border:1px solid #4b4a4a;height:30px;background-color:#252525;}
-#breadcrumb li img {height:25px;}
-#profile-nav .career {}
-#profile-nav .heroes {}
-#profile-nav .progress {}
-#profile-nav .fallenheroes {}
-#profile-nav h4,#profile-nav2 h4 {z-index:1000; background-color:#252525;padding:2px;position:relative;top:50px;}
-#profile-nav img,#profile-nav2 img {border:1px solid #4b4a4a;}
-#heroes .hero-name,#fallenheroes .hero-name {background-color:#252525;color:#2BA6CB;border:1px solid #4b4a4a;margin-top:10px}
-#heroes h4,#fallenheroes h4 {margin-top:10px;}
-#progress .ten img {margin-top:2px;}
-
+select{-moz-transition:all 0.15s linear 0s;-o-transition:all 0.15s linear 0s;-webkit-transition:all 0.15s linear 0s;transition:all 0.15s linear 0s;border:1px solid #CCCCCC;border-radius:2px 2px 2px 2px;box-shadow:0 1px 2px rgba(0, 0, 0, 0.1) inset;color:rgba(0, 0, 0, 0.75);font-family:Arial,Verdana,Sans-Serif;font-size:17px;height:32px;margin:0 0 12px;padding:6px;width:100%;}
+input[type="text"],input[type="password"],input[type="date"],input[type="datetime"],input[type="email"],input[type="number"],input[type="search"],input[type="tel"],input[type="time"],input[type="url"],textarea{font-family:Arial,Sans-Serif;font-size:16px;border:2px solid #cccccc;height:32px;}
+.has-tip{font-weight:normal;}
+input[type="checkbox"]{width:20px;}
+input.button[type="submit"]{padding:6px 20px 7px;}
+.lblcheckbox{font-size:20px;margin-bottom:4px;}
+p{font-family:Arial,Sans-Serif;font-weight:normal;font-size:Arial,Sans-Serif;line-height:1.2;margin:0px 0px 17px;}
+body,div,dl,dt,dd,ul,ol,li,pre,form,p,blockquote,th,td{font-size:18px;font-family:18px;}
+table{border:none;width:100%;margin:0px;padding:0px;}
+ul,ol{list-style:none;font-size:12px;}
+li{padding:5px 0px 5px 10px;display:block;text-align:center;}
+a{color:#2ba6cb;cursor:pointer;}
+a:hover{color:#2989bc;text-decoration:underline;}
+a:focus{color:#2ba6cb;}
+a:visited{color:#2ba6cb;}
+a{border:0;}
+img{border:0;}
+.clear{clear:both;}
+h1,h2,h3,h4,h5,h6{font-family:Segoe UI,Arial;font-weight:lighter;color:#2ba6cb;text-rendering:optimizeLegibility;line-height:1.1;margin-bottom:0px;margin-top:0px;}
+h1{font-size:56.832px;}
+h2{font-size:42.635px;}
+h3{font-size:31.984px;}
+h4{font-size:23.994px;}
+h5{font-size:18px;}
+.button.alert{background-color:#d40811;text-transform:uppercase;}
+.button.primary{background-color:#2ba6cb;padding:6px 20px 7px;}
+.button.primary:hover{background-color:#2989bc;text-decoration:none;color:#252525;}
+.button{background-color:#2ba6cb;padding:6px 20px 7px;color:#252525;}
+.button:hover{background-color:#2989bc;text-decoration:none;}
+.button.radius{border-radius:3px;}
+body{background-color:#2b2b2b;}
+.first{margin-top:20px;}
+.top{margin-top:100px;}
+.battletag h1{margin-top:10px;}
+#profile-nav .last{margin-top:20px;}
+#battletag-search{margin-top:20px;}
+#battletag-search input[type=text]{background-color:#252525;color:#2BA6CB;border-color:#4b4a4a;font-size:12pt;}
+#battletag-search .validationtext{color:#2BA6CB;}
+#battletag-footer{margin-top:100px;}
+#battletag-footer .sponsored-link,#battletag-status .status-text,#progress .update-text{text-align:center;color:#2BA6CB;}
+#breadcrumb{margin-top:20px;}
+#breadcrumb li{float:left;color:#4b4a4a;padding-top:3px;padding-right:2px;}
+#breadcrumb li a{color:#2ba6cb;vertical-align:top;}
+#breadcrumb ul{list-style-type:none;padding-left:10px;}
+#breadcrumb .crumbs{clear:both;border:1px solid #4b4a4a;height:30px;background-color:#252525;}
+#breadcrumb li img{height:25px;}
+#profile-nav h4,#profile-nav2 h4{z-index:1000;background-color:#252525;padding:2px;position:relative;top:50px;}
+#profile-nav img,#profile-nav2 img{border:1px solid #4b4a4a;}
+#heroes .hero-name,#fallenheroes .hero-name{background-color:#252525;color:#2BA6CB;border:1px solid #4b4a4a;margin-top:10px;}
+#heroes .hero-level,.hero-dif,.hero-icon,.hero-na{text-align:center;vertical-align:middle;border-left:1px solid #4b4a4a;height:100%;}
+#heroes .hero-level,.hero-dif.hero-na{border:none;}
+#heroes .hero-na,#heroes .hero-level{padding:2%;}
+#progress .ten img{margin-top:2px;}
+@media only screen and (max-width:767px){h1{font-size:42.635px;}}@media only screen and (max-width:480px){h1{font-size:23.994px;}}
